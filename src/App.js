@@ -6,7 +6,7 @@ import { DefaultLayout } from '~/components/Layout';
 function App() {
   return (
     <Router>
-      <div style={{ padding: 20 }}>
+      <div>
         <Routes>
           {publicRoutes.map((route, index) => {
             // Component khi đặt dưới dạng biến và muốn dùng nó với JSX
