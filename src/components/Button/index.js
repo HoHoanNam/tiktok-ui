@@ -1,0 +1,69 @@
+import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
+import styles from './Button.module.scss';
+
+const cx = classNames.bind(styles);
+// to: link nội bộ
+// href: link bên ngoài
+function Button({
+  to,
+  href,
+  primary = false,
+  outline = false,
+  small = false,
+  text = false,
+  rounded = false,
+  disabled = false,
+  large = false,
+  children,
+  className,
+  leftIcon,
+  rightIcon,
+  onClick,
+  ...passProps
+}) {
+  let Comp = 'button';
+  const props = {
+    onClick,
+    ...passProps,
+  };
+
+  // Remove event listeners when btn is disabled
+  if (disabled) {
+    Object.keys(props).forEach((key) => {
+      if (key.startsWith('on') && typeof props[key] === 'function') {
+        delete props[key];
+      }
+    });
+  }
+
+  if (to) {
+    props.to = to;
+    Comp = Link;
+  } else if (href) {
+    props.href = href;
+    Comp = 'a';
+  }
+
+  const classes = cx('wrapper', {
+    // Khi có className, nó sẽ lấy giá trị của className để làm key
+    // trong [className] ở đây
+    [className]: className,
+    primary,
+    outline,
+    text,
+    rounded,
+    disabled,
+    small,
+    large,
+  });
+  return (
+    <Comp className={classes} {...props}>
+      <span className={cx('icon')}>{leftIcon}</span>
+      <span className={cx('title')}>{children}</span>
+      <span className={cx('icon')}>{rightIcon}</span>
+    </Comp>
+  );
+}
+
+export default Button;
