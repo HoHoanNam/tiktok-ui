@@ -1,0 +1,27 @@
+// Menu wrapper
+.menu-list {
+  // width: 224px;
+  width: 230px;
+
+  // Lấy được ưu tiên cao hơn
+  .menu-item {
+    margin-left: 0;
+  }
+}
+
+.menu-popper {
+  padding-bottom: 8px;
+}
+
+.menu-item {
+  width: 100%; // tự thêm
+  font-family: 'Poppins', Arial;
+  justify-content: start;
+  border-radius: 0;
+  font-weight: 500; // tự thêm
+  padding: 11px 16px;
+
+  &:hover {
+    background-color: rgb(22 24 35 / 3%);
+  }
+}

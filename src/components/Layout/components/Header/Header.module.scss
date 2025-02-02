@@ -101,3 +101,16 @@
     background-color: rgba(22, 24, 35, 0.06);
   }
 }
+
+// Tự thêm (UI HEADER #4)
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.more-btn {
+  font-size: 2rem;
+  margin-left: 28px;
+  padding: 4px 8px;
+  background-color: transparent;
+}
