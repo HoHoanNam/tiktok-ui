@@ -6,6 +6,7 @@ const cx = classNames.bind(styles);
 // to: link nội bộ
 // href: link bên ngoài
 function Button({
+  // Mặc định ko truyền thì là false
   to,
   href,
   primary = false,
